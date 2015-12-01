@@ -24,7 +24,7 @@ public class Main {
 
         get("/getall", (req, res) -> client.keys("*").stream()
                 .map(s -> s + " : " + client.get(s))
-                .collect(Collectors.joining(", ")));
+                .collect(Collectors.joining("<br>")));
 
         get("/del/:key", (req, res) -> client.del(req.params(":key")));
 
