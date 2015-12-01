@@ -16,7 +16,7 @@ public class Main {
         URI redisURI = new URI(System.getenv("REDIS_URL"));
         Jedis client = new Jedis(redisURI);
 
-        get("/", (req, res) -> "<h1>To use simple SET/GET/DEL on heroku-redis, try...</h1> <h2>/set/KEY/VALUE</h2> <h2>/get/KEY</h2> <h2>/getall</h2> <h2>/del/KEY</h2>");
+        get("/", (req, res) -> "<h1>To use simple SET/GET/DEL/EXPIRE/TTL on heroku-redis, try...</h1> <h2>/set/KEY/VALUE</h2> <h2>/get/KEY</h2> <h2>/getall</h2> <h2>/del/KEY</h2> <h2>/expire/KEY/SEC</h2> <h2>/ttl/KEY</h2>");
 
         get("/set/:key/:value", (req, res) -> client.set(req.params(":key"), req.params(":value")));
 
